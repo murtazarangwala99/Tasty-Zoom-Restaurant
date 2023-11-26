@@ -14,7 +14,7 @@ const Home = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(API_LINK);
+    const data = await fetch("https://corsproxy.io/?" + API_LINK);
     const json = await data.json();
     console.log("Json: ", json);
 
