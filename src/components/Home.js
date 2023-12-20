@@ -14,7 +14,8 @@ const Home = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("https://corsproxy.io/?" + API_LINK);
+    // const data = await fetch("https://corsproxy.io/?" + API_LINK);
+    const data = await fetch("https://thingproxy.freeboard.io/fetch/" + API_LINK);
     const json = await data.json();
     console.log("Json: ", json);
 
@@ -46,25 +47,27 @@ const Home = () => {
 
   return (
     <>
-      <div className="main">
-        <div className="body-top">
+      <div className="flex flex-col mx-8 my-4">
+        <div className="flex justify-between py-4 pb-6 ">
           <div>
-            <button className="btn" onClick={topRatedRestaurant}>
+            <button
+              className="px-6 py-2 bg-gray-300 rounded-lg font-semibold hover:underline"
+              onClick={topRatedRestaurant}>
               {btnName}
             </button>
           </div>
-          <div className="search-div">
+          <div className="flex gap-2">
             <input
               type="text"
               placeholder="Search Restaurant..."
-              className="input-search"
+              className="border-2 rounded-lg px-3 py-2"
               value={searchText}
               onChange={(e) => {
                 setSearchText(e.target.value);
               }}
             />
             <button
-              className="btn"
+              className="px-5 py-2 bg-gray-300 rounded-lg font-semibold hover:underline"
               onClick={() => {
                 const searchedRestaurant = restaurantList.filter((res) =>
                   res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
@@ -78,9 +81,9 @@ const Home = () => {
           </div>
         </div>
         {/* Restaurant Card */}
-        <div className="res-card-container">
+        <div className="flex flex-wrap gap-5 mx-6 my-2 mb-8 justify-between">
           {filteredRestaurant.map((res) => (
-            <div className="res-cards">
+            <div className="">
               <Link to={"/restaurant/" + res?.info.id} key={res?.info?.id}>
                 <RestaurantCard key={res?.info?.id} {...res} />
               </Link>

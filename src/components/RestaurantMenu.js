@@ -14,7 +14,8 @@ const RestaurantMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const data = await fetch("https://corsproxy.io/?" + MENU_API + resId);
+    // const data = await fetch("https://corsproxy.io/?" + MENU_API + resId);
+    const data = await fetch("https://thingproxy.freeboard.io/fetch/" + MENU_API + resId);
     const json = await data.json();
     // console.log("RestaurantMenu: ", json);
     setResInfo(json.data);
@@ -29,63 +30,42 @@ const RestaurantMenu = () => {
     resInfo?.cards[0]?.card?.card?.info;
 
   const { deliveryTime } = resInfo?.cards[0]?.card?.card?.info?.sla;
-  // object►data►cards►2►groupedCard►cardGroupMap->REGULAR-cards-2-card-card-itemCards-
 
   // console.log(
   //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards
   // );
 
-  // console.log("DDDD");
-
   const { itemCards } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
-  // console.log(itemCards);
+  console.log(itemCards);
   const color = avgRating >= 4 ? "green" : "red";
 
   return (
     <>
-      <div className="res-menu-main">
-        <div className="res-name">
-          <div className="res-cusine">
-            <h2>{name} </h2>
-            <p>{cuisines.join(", ")} </p>
-            <p>
-              Area: {areaName}, {city}
+      <div className="text-center w-6/12 mx-auto my-8">
+        <div className="flex justify-between mb-3 ">
+          <div className="px-1 text-left">
+            <h2 className="font-semibold">{name} </h2>
+            <p className="text-gray-600"> {cuisines.join(", ")} </p>
+            <p className="text-gray-600">
+              {areaName}, {city}
             </p>
           </div>
           {/* Red and green Effect */}
-          <div className="res-rating" style={{ color: color }}>
+          <div
+            className="border-2 px-4 py-5 rounded-lg text-lg"
+            style={{ color: color, borderColor: color }}>
             <p>{avgRatingString}★</p>
           </div>
         </div>
-        <div>
-          <h3>Delivery in {deliveryTime} Minutes</h3>
+        <hr />
+        <div className="text-left mt-2">
+          <h3>Delivered in {deliveryTime} Minutes</h3>
           <h3>{costForTwoMessage}</h3>
         </div>
-        {/* Menu Card Started */}
-        <div className="res-menu">
-          <div>
-            <h3>
-              <li>Restaurant Menu</li>
-            </h3>
-          </div>
-          {itemCards.map((item) => (
-            <div className="res-menu-card" key={item.card?.info?.id}>
-              <div className="res-menu-card-left">
-                <h3>{item.card?.info?.name}</h3>
-                <p>₹ {item.card?.info?.price / 100}</p>
-                <p>{item.card?.info?.description}</p>
-              </div>
-              <div className="res-menu-img">
-                <img src={LightLogo} alt="logo" />
-                <button className="btn">Add to Cart</button>
-              </div>
-            </div>
-          ))}
-
-          {/* TEst */}
-        </div>
+        {/* IF veg then show */}
+        {/* <div>PURE VEG</div> */}
       </div>
     </>
   );

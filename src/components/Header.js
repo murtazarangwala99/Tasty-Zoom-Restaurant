@@ -6,26 +6,26 @@ const Header = () => {
 
   return (
     <>
-      <div className="header">
-        <div className="logo-div">
+      <div className="flex mx-6 my-2 justify-between ">
+        <div>
           <Link to="/">
-            <img src={LightLogo} alt="Light-Logo" className="logo-img" />
+            <img src={LightLogo} alt="Light-Logo" className="w-24 rounded-full" />
           </Link>
         </div>
-        <div className="header-items">
-          <ul className="nav-items">
-            <li className="nav-item">
+        <div className="flex flex-wrap">
+          <ul className="flex justify-center items-center flex-wrap gap-6">
+            <li className="hover:underline font-bold">
               <Link to="/">Home</Link>
             </li>
-            <li className="nav-item">
+            <li className="hover:underline font-bold ">
               <Link to="/about">About us</Link>
             </li>
-            <li className="nav-item">
+            <li className="hover:underline font-bold">
               <Link to="/contact">Contact us</Link>
             </li>
-            <li className="nav-item">Cart</li>
+            <li className="hover:underline font-bold">Cart</li>
             <button
-              className="login-btn"
+              className="hover:underline rounded-lg font-bold px-4 py-2 bg-blue-500 text-white "
               onClick={() => {
                 btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
               }}>

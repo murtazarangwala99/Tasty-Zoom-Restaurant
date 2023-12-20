@@ -33,3 +33,28 @@
 </div>
 
           */
+
+/* 
+      // **********  Restaurant Menu Cards  *********
+        <div className="res-menu">
+          <div>
+            <h3>
+              <li>Restaurant Menu</li>
+            </h3>
+          </div>
+          {itemCards.map((item) => (
+            <div className="res-menu-card" key={item.card?.info?.id}>
+              <div className="res-menu-card-left">
+                <h3>{item.card?.info?.name}</h3>
+                <p>₹ {item.card?.info?.price / 100}</p>
+                <p>{item.card?.info?.description}</p>
+              </div>
+              <div className="res-menu-img">
+                <img src={LightLogo} alt="logo" />
+                <button className="btn">Add to Cart</button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+*/
