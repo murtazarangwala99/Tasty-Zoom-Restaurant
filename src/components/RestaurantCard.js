@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
   };
   const { deliveryTime } = { ...props?.info?.sla };
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <div className="flex flex-col bg-slate-200 hover:bg-green-200 hover:shadow-xl rounded-xl">

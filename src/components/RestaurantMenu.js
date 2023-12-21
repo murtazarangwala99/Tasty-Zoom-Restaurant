@@ -14,7 +14,8 @@ const RestaurantMenu = () => {
 
   const fetchMenu = async () => {
     // const data = await fetch("https://corsproxy.io/?" + MENU_API + resId);
-    const data = await fetch("https://thingproxy.freeboard.io/fetch/" + MENU_API + resId);
+    // const data = await fetch("https://thingproxy.freeboard.io/fetch/" + MENU_API + resId);
+    const data = await fetch(MENU_API + resId);
     const json = await data.json();
     setResInfo(json.data);
   };
@@ -36,15 +37,15 @@ const RestaurantMenu = () => {
     sla,
   } = resInfo?.cards[0]?.card?.card?.info;
 
-  console.log(resInfo);
-  console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards);
+  // console.log(resInfo);
+  // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards);
 
   const items = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
     (i) =>
       i?.card?.card?.["@type"] ==
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
-  console.log(items);
+  // console.log(items);
 
   const color = avgRating >= 4 ? "green" : "red";
 

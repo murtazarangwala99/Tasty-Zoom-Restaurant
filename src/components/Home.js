@@ -14,24 +14,29 @@ const Home = () => {
   }, []);
 
   const fetchData = async () => {
-    // const data = await fetch("https://corsproxy.io/?" + API_LINK);
-    const data = await fetch("https://thingproxy.freeboard.io/fetch/" + API_LINK);
+    // https://corsproxy.org/?
+
+    // const data = await fetch("https://corsproxy.org/?" + API_LINK);
+    // const data = await fetch("https://thingproxy.freeboard.io/fetch/" + API_LINK);
+    const data = await fetch(
+      "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D21.1702401%26lng%3D72.83106070000001%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING"
+    );
     const json = await data.json();
-    console.log("Json: ", json);
+    // console.log("Json: ", json);
 
     const restaurant_list =
       json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
     setRestaurantList(restaurant_list);
     setFilteredRestaurant(restaurant_list);
-    console.log("RestaurantList: ", restaurantList);
+    // console.log("RestaurantList: ", restaurantList);
   };
 
   const topRatedRestaurant = () => {
     const filterRes = restaurantList.filter((res) => res?.info?.avgRating > 4);
     setFilteredRestaurant(filterRes);
 
-    console.log("Filtered: ", restaurantList);
+    // console.log("Filtered: ", restaurantList);
 
     if (btnName == "Top Rated Restaurant") {
       setBtnName("Show All Restaurant");
