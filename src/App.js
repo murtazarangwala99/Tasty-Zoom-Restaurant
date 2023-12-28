@@ -9,7 +9,7 @@ import Contact from "./components/Contact";
 import Career from "./components/Career";
 import Privacy from "./components/Privacy";
 import RouteError from "./components/RouteError";
-import RestaurantMenu from "./components/RestaurantMenu";
+import RestaurantMenu from "./components/RestaurantMenu/RestaurantMenu";
 
 const App = () => {
   return (

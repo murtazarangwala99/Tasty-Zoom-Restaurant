@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import HomeShimmerPage from "./HomeShimmerPage";
+import HomeShimmerPage from "../HomeShimmerPage";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constant";
+import { MENU_API } from "../../utils/constant";
 import RestaurantMenuCategory from "./RestaurantMenuCategory";
 
 const RestaurantMenu = () => {
@@ -13,8 +13,6 @@ const RestaurantMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
-    // const data = await fetch("https://corsproxy.io/?" + MENU_API + resId);
-    // const data = await fetch("https://thingproxy.freeboard.io/fetch/" + MENU_API + resId);
     const data = await fetch(MENU_API + resId);
     const json = await data.json();
     setResInfo(json.data);
@@ -37,7 +35,6 @@ const RestaurantMenu = () => {
     sla,
   } = resInfo?.cards[0]?.card?.card?.info;
 
-  // console.log(resInfo);
   // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards);
 
   const items = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
@@ -60,7 +57,7 @@ const RestaurantMenu = () => {
               {areaName}, {city}
             </p>
           </div>
-          {/* Red and green Effect as per Rating*/}
+          {/* Red and green color change as per Rating*/}
           <div
             className="border-2 px-4 py-5 rounded-lg text-lg"
             style={{ color: color, borderColor: color }}>

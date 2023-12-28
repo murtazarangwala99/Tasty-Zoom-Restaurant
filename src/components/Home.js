@@ -14,8 +14,6 @@ const Home = () => {
   }, []);
 
   const fetchData = async () => {
-    // https://corsproxy.org/?
-
     // const data = await fetch("https://corsproxy.org/?" + API_LINK);
     // const data = await fetch("https://thingproxy.freeboard.io/fetch/" + API_LINK);
     const data = await fetch(
@@ -25,7 +23,8 @@ const Home = () => {
     // console.log("Json: ", json);
 
     const restaurant_list =
-      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
     setRestaurantList(restaurant_list);
     setFilteredRestaurant(restaurant_list);
@@ -88,11 +87,11 @@ const Home = () => {
         {/* Restaurant Card */}
         <div className="flex flex-wrap gap-5 mx-6 my-2 mb-8 justify-between">
           {filteredRestaurant.map((res) => (
-            <div className="">
-              <Link to={"/restaurant/" + res?.info.id} key={res?.info?.id}>
-                <RestaurantCard key={res?.info?.id} {...res} />
-              </Link>
-            </div>
+            // <div key={res?.info?.id}>
+            <Link to={"/restaurant/" + res?.info.id} key={res?.info?.id}>
+              <RestaurantCard key={res?.info?.id} {...res} />
+            </Link>
+            // </div>
           ))}
         </div>
       </div>

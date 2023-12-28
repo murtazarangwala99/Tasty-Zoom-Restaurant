@@ -1,9 +1,8 @@
 {
   "name": "tasty-zoom",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Restaurant Website created using RectJs, Redux-Toolkit and data are fetched Live from Swiggy API. Here We also use Tailwind CSS for styling the Website. We also use Redux-toolkit for Adding items into the Cart.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
@@ -11,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.0.4",
     "react-router-dom": "^6.19.0"
   },
   "devDependencies": {
