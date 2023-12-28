@@ -10,7 +10,7 @@ const RestaurantMenuCategoryList = ({ items }) => {
         {items.map((item) => (
           <div
             key={item?.card?.info?.id}
-            className="p-2 m-2 flex justify-between gap-6 border-gray-200 border-b-2 text-left">
+            className="p-2 m-2 flex justify-between gap-6 border-gray-200 border-b-2 last:border-none text-left">
             <div className="w-3/12">
               {/* <div className="absolute"></div> */}
               <img

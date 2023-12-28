@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { API_LINK, RES_CARD_URL } from "../utils/constant";
+import { API_LINK } from "../utils/constant";
 import RestaurantCard from "./RestaurantCard";
 import HomeShimmerPage from "./HomeShimmerPage";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 const Home = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [btnName, setBtnName] = useState("Top Rated Restaurant");
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -16,9 +19,7 @@ const Home = () => {
   const fetchData = async () => {
     // const data = await fetch("https://corsproxy.org/?" + API_LINK);
     // const data = await fetch("https://thingproxy.freeboard.io/fetch/" + API_LINK);
-    const data = await fetch(
-      "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D21.1702401%26lng%3D72.83106070000001%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(API_LINK);
     const json = await data.json();
     // console.log("Json: ", json);
 
@@ -47,6 +48,14 @@ const Home = () => {
 
   if (restaurantList.length === 0 || filteredRestaurant.length === 0) {
     return <HomeShimmerPage />;
+  }
+
+  if (onlineStatus === false) {
+    return (
+      <h1 className="text-center h-full my-56 text-red-600 font-extrabold text-2xl">
+        Looks Like You are offline!! Please Check your Internet Connection
+      </h1>
+    );
   }
 
   return (
@@ -89,6 +98,7 @@ const Home = () => {
           {filteredRestaurant.map((res) => (
             // <div key={res?.info?.id}>
             <Link to={"/restaurant/" + res?.info.id} key={res?.info?.id}>
+              {/* {res?.info?.aggregatedDiscountInfoV3} */}
               <RestaurantCard key={res?.info?.id} {...res} />
             </Link>
             // </div>

@@ -7,6 +7,7 @@ import RestaurantMenuCategory from "./RestaurantMenuCategory";
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
+  const [showIndex, setShowIndex] = useState(0);
 
   useEffect(() => {
     fetchMenu();
@@ -76,6 +77,10 @@ const RestaurantMenu = () => {
           <RestaurantMenuCategory
             key={item?.card?.card?.title}
             items={item?.card?.card}
+            showItems={index === showIndex ? true : false}
+            setShowIndex={(index) => {
+              setShowIndex(index);
+            }}
             index={index}
           />
         ))}
