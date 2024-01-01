@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import LightLogo from "../../resources/Light.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
 
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   return (
     <>
       <div className="flex mx-6 my-2 justify-between ">
@@ -23,7 +27,9 @@ const Header = () => {
             <li className="hover:underline font-bold">
               <Link to="/contact">Contact us</Link>
             </li>
-            <li className="hover:underline font-bold">Cart</li>
+            <li className="hover:underline font-bold">
+              <Link to="/cart">Cart - {cartItems.length}</Link>
+            </li>
             <button
               className="hover:underline rounded-lg font-bold px-4 py-2 bg-blue-500 text-white "
               onClick={() => {
