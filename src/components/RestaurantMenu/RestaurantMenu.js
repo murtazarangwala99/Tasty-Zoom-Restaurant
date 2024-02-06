@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HomeShimmerPage from "../HomeShimmerPage";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../../utils/constant";
+import { MENU_API, MOBILE_MENU_API } from "../../utils/constant";
 import RestaurantMenuCategory from "./RestaurantMenuCategory";
 
 const RestaurantMenu = () => {
@@ -14,7 +14,12 @@ const RestaurantMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
+    if (window.innerWidth < 640) {
+      apiUrl = MOBILE_MENU_API;
+    } else {
+      apiUrl = MENU_API;
+    }
+    const data = await fetch(apiUrl + resId);
     const json = await data.json();
     setResInfo(json.data);
   };
@@ -34,16 +39,18 @@ const RestaurantMenu = () => {
     avgRating,
     veg,
     sla,
-  } = resInfo?.cards[0]?.card?.card?.info;
-
+  } = resInfo?.cards[0]?.card?.card?.info || resInfo?.cards[2]?.card?.card?.info;
   // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards);
 
-  const items = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
+  const itemsData =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards ||
+    resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR.cards;
+
+  const items = itemsData.filter(
     (i) =>
       i?.card?.card?.["@type"] ==
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
-  // console.log(items);
 
   const color = avgRating >= 4 ? "green" : "red";
 

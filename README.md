@@ -1,10 +1,11 @@
+# Pending Tasks:
+
 ## To-Do:
 
-- Mobile Responsive
-- Login/Resgister using Firebase
+- Mobile Responsive (Done)
+- Solve API issue in Mobile (Pending)
+- Login/Resgister using Firebase (Pending)
 
-Web-API
-https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
+## To-Do(UI):
 
-Mobile API
-https://www.swiggy.com/mapi/homepage/getCards?lat=21.1702401&lng=72.83106070000001
+- Add different Shimmer for Restaurant Menu
