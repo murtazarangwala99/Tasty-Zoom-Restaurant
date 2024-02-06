@@ -14,6 +14,7 @@ const RestaurantMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
+    let apiUrl = '';
     if (window.innerWidth < 640) {
       apiUrl = MOBILE_MENU_API;
     } else {
