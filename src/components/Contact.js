@@ -16,7 +16,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="flex mx-20 flex-col px-8 gap-4 justify-center  my-8">
+      <div className="flex mx-4 sm:mx-20 flex-col sm:px-8 gap-4 justify-center my-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-3">Contact Us - Tasty Zoom</h1>
           <p className="text-justify text-lg">

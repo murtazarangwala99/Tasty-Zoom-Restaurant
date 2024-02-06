@@ -14,7 +14,7 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="text-center m-4 p-4 pb-80">
+      <div className="text-center m-4 p-4 pb-[450px] md:pb-80">
         <h1 className="text-4xl font-bold">Cart</h1>
         <h2 className="m-4 text-2xl font-bold">No items Found in Cart</h2>
       </div>

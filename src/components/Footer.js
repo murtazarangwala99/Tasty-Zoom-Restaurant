@@ -1,21 +1,19 @@
 import React from "react";
 import DarkLogo from "../../resources/Dark.png";
-// import LightLogo from "../../resources/Light.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <>
-      {/* <hr /> */}
-      <div className="flex px-4 py-2 absolute  w-full bg-black justify-between text-white">
+      <div className="flex px-4 py-2 absolute w-full bg-black justify-between text-white">
         <div className="flex flex-col">
           <Link to="/">
-            <img src={DarkLogo} alt="Logo" className="w-24 rounded-full mx-8 my-2" />
-            <p className="hover:underline">©2023 Tasty Zoom Pvt. Ltd</p>
+            <img src={DarkLogo} alt="Logo" className="w-16 sm:w-24 rounded-full mx-8 my-2" />
+            <p className="hover:underline text-lg">©2023 Tasty Zoom Pvt. Ltd</p>
           </Link>
         </div>
-        <div className="flex">
-          <ul className="flex justify-center items-center gap-8 font-bold">
+        <div className="flex items-center justify-center">
+          <ul className="flex flex-col flex-wrap sm:flex-row justify-between gap-1 sm:gap-8 sm:font-bold">
             <li className="hover:underline">
               <Link to="/about">About</Link>
             </li>

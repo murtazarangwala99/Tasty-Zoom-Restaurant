@@ -14,7 +14,7 @@ const RestaurantMenuCategory = ({ items, showItems, setShowIndex, index }) => {
     <div>
       {/* Accordian Header */}
       <div>
-        <div className="mx-auto my-4 rounded-lg bg-gray-100 shadow-lg p-4">
+        <div className="mx-auto my-4 rounded-lg bg-gray-100 shadow-lg p-2 sm:p-4">
           <div className="flex justify-between cursor-pointer" onClick={handleClick}>
             <span className="font-bold text-lg">
               {items?.title} ({items?.itemCards.length})

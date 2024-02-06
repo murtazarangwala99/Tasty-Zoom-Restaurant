@@ -20,8 +20,8 @@ const RestaurantMenuCategoryList = ({ items }) => {
           <div
             key={item?.card?.info?.id}
             className="p-2 m-2 flex justify-between gap-6 border-gray-200 border-b-2 last:border-none text-left">
+            {/* img Div */}
             <div className="w-3/12">
-              {/* <div className="absolute"></div> */}
               <img
                 src={
                   item?.card?.info?.imageId
@@ -32,7 +32,7 @@ const RestaurantMenuCategoryList = ({ items }) => {
                 className="w-full h-24"
               />
             </div>
-
+            {/* Description div */}
             <div className="w-9/12">
               <div className="py-2">
                 <span className="font-medium">{item?.card?.info?.name}</span>
@@ -46,7 +46,9 @@ const RestaurantMenuCategoryList = ({ items }) => {
                   Add +
                 </button>
               </div>
-              <p className="text-xs w-10/12 text-justify">{item?.card?.info?.description}</p>
+              <p className="text-xs w-8/12 sm:w-10/12 text-left">
+                {item?.card?.info?.description}
+              </p>
             </div>
           </div>
         ))}

@@ -49,7 +49,7 @@ const RestaurantMenu = () => {
 
   return (
     <>
-      <div className="text-center w-6/12 mx-auto my-8">
+      <div className="text-center w-11/12 sm:w-6/12 mx-auto my-8">
         <div className="flex justify-between mb-3 ">
           <div className="px-1 text-left">
             <h2 className="font-semibold text-lg underline">{name} </h2>
