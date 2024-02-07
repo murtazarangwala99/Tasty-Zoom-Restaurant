@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ITEM_IMAGE, NO_IMAGE_FOUND } from "../../utils/constant";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../utils/cartSlice";
@@ -58,6 +58,13 @@ const RestaurantMenuCategoryList = ({ items }) => {
 };
 
 export const RestaurantListForCart = ({ items }) => {
+  // Calculate total price
+  const totalPrice = items.reduce((accumulator, currentItem) => {
+    const price =
+      (currentItem?.card?.info?.price || currentItem?.card?.info?.defaultPrice) / 100;
+    return accumulator + price;
+  }, 0);
+  // console.log(totalPrice);
   return (
     <>
       <div className="w-full">
@@ -90,6 +97,9 @@ export const RestaurantListForCart = ({ items }) => {
             </div>
           </div>
         ))}
+        <div>
+          <p className="font-bold text-xl">Total Amount : {totalPrice}</p>
+        </div>
       </div>
     </>
   );
