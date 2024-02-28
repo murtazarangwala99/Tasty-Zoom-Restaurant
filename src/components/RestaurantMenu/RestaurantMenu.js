@@ -45,7 +45,10 @@ const RestaurantMenu = () => {
 
   const itemsData =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards ||
-    resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR.cards;
+    resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR.cards || 
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards;
+
+    console.log(itemsData)
 
   const items = itemsData.filter(
     (i) =>
