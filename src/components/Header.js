@@ -36,13 +36,15 @@ const Header = () => {
                 <Link to="/cart">Cart ({cartItems.length})</Link>
               </li>
               {/* change on basis of user is login or not */}
-              <button
-                className="hover:underline rounded-lg p-2 m-2 font-bold bg-blue-500 text-white "
-                onClick={() => {
-                  btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-                }}>
-                {btnName}
-              </button>
+              <Link to="/login">
+                <button
+                  className="hover:underline rounded-lg p-2 m-2 font-bold bg-blue-500 text-white "
+                  onClick={() => {
+                    btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
+                  }}>
+                  {btnName}
+                </button>
+              </Link>
             </ul>
           </div>
         )}
@@ -64,13 +66,15 @@ const Header = () => {
               <Link to="/cart">Cart ({cartItems.length})</Link>
             </li>
             {/* change on basis of user is login or not */}
-            <button
-              className="hover:underline rounded-lg p-2 m-2 sm:px-4 sm:py-2 sm:mx-4 sm:my-2 font-bold bg-blue-500 text-white "
-              onClick={() => {
-                btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-              }}>
-              {btnName}
-            </button>
+            <Link to="/login">
+              <button
+                className="hover:underline rounded-lg p-2 m-2 sm:px-4 sm:py-2 sm:mx-4 sm:my-2 font-bold bg-blue-500 text-white "
+                onClick={() => {
+                  btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
+                }}>
+                {btnName}
+              </button>
+            </Link>
           </ul>
         </div>
 
