@@ -17,9 +17,10 @@ const Home = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(API_LINK);
+    const data = await fetch(API_LINK, { mode: "cors" });
+    console.log(data);
     const json = await data.json();
-    // console.log("Json: ", json);
+    console.log("Json: ", json);
 
     const restaurant_list =
       json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
