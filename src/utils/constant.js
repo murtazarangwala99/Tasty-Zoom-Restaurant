@@ -10,6 +10,8 @@ export const API_LINK =
 
   "/api/https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
+// https://cors-anywhere.herokuapp.com/
+
 export const MOBILE_API_LINK =
   // "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fmapi%2Fhomepage%2FgetCards%3Flat%3D21.1702401%26lng%3D72.83106070000001";
 
